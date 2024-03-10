@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/ed1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="7dp"
+        android:inputType="number"
+        android:hint="Enter first number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="91dp"
+        android:inputType="number"
+        android:hint="Enter second number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="184dp"
+        android:onClick="add"
+        android:text="ADD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="282dp"
+        android:onClick="sub"
+        android:text="SUB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="386dp"
+        android:onClick="mul"
+        android:text="Mult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="508dp"
+        android:onClick="div"
+        android:text="Div"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="602dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+package com.example.caclulator;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    EditText ed1, ed2;
+    Button b1, b2, b3, b4;
+    TextView tv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1=(EditText) findViewById(R.id.ed1);
+        ed2=(EditText) findViewById(R.id.ed2);
+        b1=(Button) findViewById(R.id.b1);
+        b2=(Button) findViewById(R.id.b2);
+        b3=(Button) findViewById(R.id.b3);
+        b4=(Button) findViewById(R.id.b4);
+        tv=(TextView) findViewById(R.id.tv);
+
+    }
+
+    public void add(View view) {
+        int a= Integer.parseInt(ed1.getText().toString());
+        int b= Integer.parseInt(ed2.getText().toString());
+        int c = a+b;
+        tv.setText("Sum is "+c);
+    }
+
+    public void sub(View view) {
+        int a= Integer.parseInt(ed1.getText().toString());
+        int b= Integer.parseInt(ed2.getText().toString());
+        int c = a-b;
+        tv.setText("after substraction " +c);
+    }
+
+    public void mul(View view) {
+        int a= Integer.parseInt(ed1.getText().toString());
+        int b= Integer.parseInt(ed2.getText().toString());
+        int c = a*b;
+        tv.setText("after multiplication " +c);
+    }
+
+    public void div(View view) {
+        int a= Integer.parseInt(ed1.getText().toString());
+        int b= Integer.parseInt(ed2.getText().toString());
+        int c = a/b;
+        tv.setText("after division " +c);
+    }
+}

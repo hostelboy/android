@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <CheckBox
+        android:id="@+id/c1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="146dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="537dp"
+        android:text="veg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/c2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="231dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="452dp"
+        android:text="non vrg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="342dp"
+        android:onClick="submit"
+        android:text="submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+package com.example.checkbox;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SyncStatusObserver;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    CheckBox c1,c2;
+    Button b;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        c1=(CheckBox) findViewById(R.id.c1);
+        c2=(CheckBox) findViewById(R.id.c2);
+        b=(Button) findViewById(R.id.btn);
+    }
+
+    public void submit(View view) {
+        StringBuilder s= new StringBuilder();
+        if(c1.isChecked()){
+            s.append("You selected Veg");
+        }
+        if(c2.isChecked()){
+            s.append("you selected Non Veg");
+        }
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+}
